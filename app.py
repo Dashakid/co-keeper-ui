@@ -26,7 +26,7 @@ import requests
 sys.path.insert(0, os.path.abspath('.'))
 
 # Backend API Configuration
-BACKEND_URL = os.getenv("BACKEND_URL", "https://cokeeper-backend-252240360177.us-central1.run.app/docs#/")
+BACKEND_URL = os.getenv("BACKEND_URL", "BACKEND_URL = "BACKEND_URL = "https://cokeeper-backend-252240360177.us-central1.run.app"")
 
 # from src.pipeline import CoKeeperPipeline  # TODO: Uncomment when pipeline is ready
 import warnings
