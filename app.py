@@ -1460,28 +1460,36 @@ elif page == "results":
 
         st.markdown("### Top GL Accounts")
         # Use Transaction Type (QB) or Related account (Xero) - whichever exists
-        category_col = 'Transaction Type (New)' if 'Transaction Type (New)' in results.columns else 'Related account (New)'
-        top_cats = results[category_col].value_counts().head(10)
-        fig = px.bar(
-            x=top_cats.values,
-            y=top_cats.index,
-            orientation='h',
-            title="",
-            labels={'x': 'Count', 'y': ''},
-            color_discrete_sequence=['#3b82f6']
-        )
-        fig.update_layout(
-            hovermode='y unified',
-            plot_bgcolor='rgba(0,0,0,0)',
-            paper_bgcolor='rgba(0,0,0,0)',
-            font=dict(family="system-ui, -apple-system, sans-serif", size=12),
-            xaxis_title=None,
-            yaxis_title=None,
-            showlegend=False,
-            height=400,
-            margin=dict(l=200, r=0, t=0, b=0)
-        )
-        st.plotly_chart(fig, use_container_width=True)
+        if 'Transaction Type (New)' in results.columns:
+            category_col = 'Transaction Type (New)'
+        elif 'Related account (New)' in results.columns:
+            category_col = 'Related account (New)'
+        else:
+            st.warning("No category column found in results. Skipping Top GL Accounts chart.")
+            category_col = None
+        
+        if category_col:
+            top_cats = results[category_col].value_counts().head(10)
+            fig = px.bar(
+                x=top_cats.values,
+                y=top_cats.index,
+                orientation='h',
+                title="",
+                labels={'x': 'Count', 'y': ''},
+                color_discrete_sequence=['#3b82f6']
+            )
+            fig.update_layout(
+                hovermode='y unified',
+                plot_bgcolor='rgba(0,0,0,0)',
+                paper_bgcolor='rgba(0,0,0,0)',
+                font=dict(family="system-ui, -apple-system, sans-serif", size=12),
+                xaxis_title=None,
+                yaxis_title=None,
+                showlegend=False,
+                height=400,
+                margin=dict(l=200, r=0, t=0, b=0)
+            )
+            st.plotly_chart(fig, use_container_width=True)
 
         st.divider()
 
