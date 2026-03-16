@@ -1424,12 +1424,14 @@ elif page == "results":
                 hovermode='x unified',
                 plot_bgcolor='rgba(0,0,0,0)',
                 paper_bgcolor='rgba(0,0,0,0)',
-                font=dict(family="system-ui, -apple-system, sans-serif", size=12),
-                xaxis_title=None,
-                yaxis_title=None,
+                font=dict(family="system-ui, -apple-system, sans-serif", size=14, color='#1f2937'),
+                xaxis_title="Tier",
+                yaxis_title="Count",
+                xaxis=dict(tickfont=dict(size=13, color='#1f2937')),
+                yaxis=dict(tickfont=dict(size=13, color='#1f2937')),
                 showlegend=False,
-                height=350,
-                margin=dict(l=0, r=0, t=0, b=0)
+                height=450,
+                margin=dict(l=60, r=30, t=30, b=60)
             )
             st.plotly_chart(fig, use_container_width=True)
 
@@ -1447,12 +1449,14 @@ elif page == "results":
                 hovermode='x unified',
                 plot_bgcolor='rgba(0,0,0,0)',
                 paper_bgcolor='rgba(0,0,0,0)',
-                font=dict(family="system-ui, -apple-system, sans-serif", size=12),
-                xaxis_title=None,
-                yaxis_title=None,
+                font=dict(family="system-ui, -apple-system, sans-serif", size=14, color='#1f2937'),
+                xaxis_title="Confidence Score",
+                yaxis_title="Count",
+                xaxis=dict(tickfont=dict(size=13, color='#1f2937')),
+                yaxis=dict(tickfont=dict(size=13, color='#1f2937')),
                 showlegend=False,
-                height=350,
-                margin=dict(l=0, r=0, t=0, b=0)
+                height=450,
+                margin=dict(l=60, r=30, t=30, b=60)
             )
             st.plotly_chart(fig, use_container_width=True)
 
