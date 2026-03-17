@@ -1254,12 +1254,20 @@ if page == "upload":
     if st.session_state.train_data is not None and st.session_state.training_result is None:
         st.markdown("### 🚀 Ready to Train")
         
-        # Add CSS to make button text darker
+        # Add CSS to style the train button with custom color
         st.markdown("""
         <style>
         .stButton button {
             color: #000000 !important;
             font-weight: bold !important;
+        }
+        [data-testid="stButton"] button {
+            background-color: #10b981 !important;
+            border-color: #10b981 !important;
+        }
+        [data-testid="stButton"] button:hover {
+            background-color: #059669 !important;
+            border-color: #059669 !important;
         }
         </style>
         """, unsafe_allow_html=True)
@@ -1267,7 +1275,7 @@ if page == "upload":
         col1, col2, col3 = st.columns([1, 2, 1])
 
         with col2:
-            if st.button("🤖 Train Model on Backend API", type="primary", use_container_width=True):
+            if st.button("🤖 Train Model on Backend API", type="secondary", use_container_width=True):
                 # Create progress tracking
                 progress_bar = st.progress(0)
                 status_text = st.empty()
