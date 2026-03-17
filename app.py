@@ -1540,26 +1540,43 @@ elif page == "review":
 
         st.markdown("### Select a Tier to Review")
         st.markdown("Predictions are organized by our confidence in the categorization. Start with GREEN for quick wins!")
+        
+        st.markdown("""
+        <style>
+        .tier-button button {
+            font-size: 16px !important;
+            font-weight: bold !important;
+            color: white !important;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2) !important;
+        }
+        </style>
+        """, unsafe_allow_html=True)
 
         col1, col2, col3 = st.columns(3)
 
         with col1:
             green_count = (results['Confidence Tier'] == 'GREEN').sum()
             green_pct = (green_count / len(results) * 100) if len(results) > 0 else 0
+            st.markdown('<div class="tier-button">', unsafe_allow_html=True)
             if st.button(f"🟢 GREEN TIER\n**{green_count}** predictions  ({green_pct:.0f}%)", use_container_width=True):
                 st.session_state.selected_tier = 'GREEN'
+            st.markdown('</div>', unsafe_allow_html=True)
 
         with col2:
             yellow_count = (results['Confidence Tier'] == 'YELLOW').sum()
             yellow_pct = (yellow_count / len(results) * 100) if len(results) > 0 else 0
+            st.markdown('<div class="tier-button">', unsafe_allow_html=True)
             if st.button(f"🟡 YELLOW TIER\n**{yellow_count}** predictions  ({yellow_pct:.0f}%)", use_container_width=True):
                 st.session_state.selected_tier = 'YELLOW'
+            st.markdown('</div>', unsafe_allow_html=True)
 
         with col3:
             red_count = (results['Confidence Tier'] == 'RED').sum()
             red_pct = (red_count / len(results) * 100) if len(results) > 0 else 0
+            st.markdown('<div class="tier-button">', unsafe_allow_html=True)
             if st.button(f"🔴 RED TIER\n**{red_count}** predictions  ({red_pct:.0f}%)", use_container_width=True):
                 st.session_state.selected_tier = 'RED'
+            st.markdown('</div>', unsafe_allow_html=True)
 
         st.divider()
 
