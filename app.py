@@ -1286,10 +1286,10 @@ if page == "upload":
                         col_a, col_b, col_c, col_d = st.columns(4)
 
                         with col_a:
-                            st.metric("Test Accuracy", f"{int(result['test_accuracy'])}")
+                            st.metric("Test Accuracy", f"{int(result['test_accuracy'])}%")
 
                         with col_b:
-                            st.metric("Validation Accuracy", f"{int(result['validation_accuracy'])}")
+                            st.metric("Validation Accuracy", f"{int(result['validation_accuracy'])}%")
 
                         with col_c:
                             st.metric("Categories Trained", result['categories'])
