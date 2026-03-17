@@ -1254,11 +1254,28 @@ if page == "upload":
     # Train button section
     if st.session_state.train_data is not None and st.session_state.training_result is None:
         st.markdown("### 🚀 Ready to Train")
+        
+        # Add CSS to make button text darker
+        st.markdown("""
+        <style>
+        .stButton button {
+            color: #000000 !important;
+            font-weight: bold !important;
+        }
+        </style>
+        """, unsafe_allow_html=True)
 
         col1, col2, col3 = st.columns([1, 2, 1])
 
         with col2:
             if st.button("🤖 Train Model on Backend API", type="primary", use_container_width=True):
+                # Create progress tracking
+                progress_bar = st.progress(0)
+                status_text = st.empty()
+                
+                status_text.text("Training model...")
+                progress_bar.progress(20)
+                
                 with st.spinner("🔄 Sending data to backend and training model..."):
                     # Call backend API
                     result, error = train_model_api(training_file)
@@ -1267,8 +1284,16 @@ if page == "upload":
                         st.error(error)
                         st.info("💡 Make sure the backend server is running: `cd backend && uvicorn main:app --reload`")
                     else:
+                        # Update progress
+                        status_text.text("Training completed! Processing metrics...")
+                        progress_bar.progress(60)
+                        
                         # Display training results
                         st.success("✅ Model training completed successfully!")
+                        
+                        # Update progress
+                        status_text.text("Validating model...")
+                        progress_bar.progress(80)
                         
                         # Add CSS to make metrics darker for better legibility
                         st.markdown("""
@@ -1297,9 +1322,6 @@ if page == "upload":
                         with col_d:
                             st.metric("Transactions Processed", result['transactions'])
 
-                        # Show additional info
-                        st.info(f"📁 Model saved to: `{result['model_path']}`")
-
                         # Show message if in placeholder mode
                         if 'message' in result and 'PLACEHOLDER' in result['message']:
                             st.warning(result['message'])
@@ -1309,15 +1331,21 @@ if page == "upload":
 
                         # Generate predictions on the prediction data
                         if st.session_state.pred_data is not None:
-                            st.info("🔄 Generating predictions on your data...")
+                            status_text.text("Generating predictions...")
+                            progress_bar.progress(90)
+                            
                             pred_results, pred_error = run_categorization(st.session_state.pred_data)
 
                             if pred_error:
                                 st.error(f"❌ Error generating predictions: {pred_error}")
                             else:
                                 st.session_state.results = pred_results
+                                status_text.text("Complete! Predictions ready.")
+                                progress_bar.progress(100)
                                 st.success(f"✅ Generated {len(pred_results)} predictions! Go to **Results** or **Review** tabs to see them.")
                         else:
+                            status_text.text("Complete! Ready for predictions.")
+                            progress_bar.progress(100)
                             st.warning("⚠️ No prediction data found. Please upload prediction data first.")
 
     # Show warning if files not uploaded yet (and no training result from previous session)
