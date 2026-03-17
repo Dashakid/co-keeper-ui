@@ -1012,7 +1012,7 @@ def run_categorization(df_pred):
 # ============================================================================
 
 st.sidebar.title("🚀 CoKeeper")
-st.sidebar.markdown("GL Categorization Intelligence")
+st.sidebar.markdown("Automatic Bookkeeping")
 st.sidebar.markdown("---")
 
 pages = {
@@ -1038,8 +1038,7 @@ else:
 st.sidebar.markdown("---")
 st.sidebar.markdown("""
 <small style="color: #6b7280; line-height: 1.6;">
-**CoKeeper** automates GL categorization using machine learning.
-Upload historical data and let AI do the heavy lifting.
+**CoKeeper** automatically sorts your expenses into the right accounts. Upload your past data and we handle the rest.
 </small>
 """, unsafe_allow_html=True)
 
@@ -1104,12 +1103,12 @@ if page == "upload":
     st.markdown(f"""
     <div class="hero-container">
         <h1>📤 Upload & Train</h1>
-        <p class="hero-tagline">Get started by uploading your training and prediction data for <strong>{pipeline_name}</strong>. We'll handle the rest with machine learning.</p>
+        <p class="hero-tagline">Upload your past transactions and current expenses for <strong>{pipeline_name}</strong>. We'll learn your patterns and categorize automatically.</p>
     </div>
     """, unsafe_allow_html=True)
 
     st.markdown("### Choose Your Data Files")
-    st.markdown("Provide your historical categorized GL export and current uncategorized export below.")
+    st.markdown("Give us your categorized expenses from last year and your current uncategorized expenses.")
     st.divider()
 
     col1, col2 = st.columns(2)
@@ -1117,8 +1116,8 @@ if page == "upload":
     with col1:
         st.markdown("""
         <div class="info-card">
-            <h3 style="margin-top: 0;">📊 Training Data</h3>
-            <p style="font-size: 14px; margin-bottom: 16px;">Your completed GL export from last year (already categorized). This teaches the model your categorization patterns.</p>
+            <h3 style="margin-top: 0;">📊 Past Transactions</h3>
+            <p style="font-size: 14px; margin-bottom: 16px;">Your expenses from last year (already sorted). We learn from this to sort your current expenses.</p>
             <span class="badge">Historical Data</span>
         </div>
         """, unsafe_allow_html=True)
@@ -1172,8 +1171,8 @@ if page == "upload":
     with col2:
         st.markdown("""
         <div class="info-card">
-            <h3 style="margin-top: 0;">🎯 Prediction Data</h3>
-            <p style="font-size: 14px; margin-bottom: 16px;">Your uncategorized GL export from this year. This is what we'll automatically categorize for you.</p>
+            <h3 style="margin-top: 0;">🎯 Current Expenses</h3>
+            <p style="font-size: 14px; margin-bottom: 16px;">Your expenses from now that need sorting. We'll automatically categorize these for you.</p>
             <span class="badge">Needs Categorization</span>
         </div>
         """, unsafe_allow_html=True)
@@ -1416,7 +1415,7 @@ elif page == "results":
     st.markdown("""
     <div class="hero-container">
         <h1>📈 Results & Analysis</h1>
-        <p class="hero-tagline">Review your AI-generated predictions with confidence scores and tier classifications.</p>
+        <p class="hero-tagline">See how we sorted your transactions with confidence scores and categories.</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -1569,7 +1568,7 @@ elif page == "review":
     st.markdown("""
     <div class="hero-container">
         <h1>✅ Review & Verify</h1>
-        <p class="hero-tagline">Examine predictions organized by confidence tier. Perfect for quality control before export.</p>
+        <p class="hero-tagline">Check our work before you use it. Sort by confidence level to decide what you trust.</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -1579,7 +1578,7 @@ elif page == "review":
         results = st.session_state.results.copy()
 
         st.markdown("### Select a Tier to Review")
-        st.markdown("Predictions are organized by our confidence in the categorization. Start with GREEN for quick wins!")
+        st.markdown("Predictions are organized by how confident we are. Start with the green ones for quick wins!")
         
         st.markdown("""
         <style>
@@ -1630,9 +1629,9 @@ elif page == "review":
         # Tier info
         tier_colors = {'GREEN': '#10b981', 'YELLOW': '#f59e0b', 'RED': '#ef4444'}
         tier_descriptions = {
-            'GREEN': 'High confidence predictions (90%+) - Generally ready for direct use',
-            'YELLOW': 'Medium confidence (70-90%) - Recommend quick review',
-            'RED': 'Low confidence (<70%) - Manual review recommended'
+            'GREEN': 'We\'re very confident - Ready to use',
+            'YELLOW': 'We\'re somewhat confident - Worth a quick check',
+            'RED': 'We\'re not sure - Review this one carefully'
         }
 
         st.markdown(f"""
@@ -1684,7 +1683,7 @@ elif page == "export":
     st.markdown("""
     <div class="hero-container">
         <h1>💾 Export Results</h1>
-        <p class="hero-tagline">Download your predictions in multiple formats. Filter by confidence tier before export.</p>
+        <p class="hero-tagline">Save your sorted transactions. Pick the file format that works for you.</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -1694,7 +1693,7 @@ elif page == "export":
         results = st.session_state.results
 
         st.markdown("### Choose Your Export Format")
-        st.markdown("Select the format that works best for your workflow.")
+        st.markdown("Pick the file type that works best for you.")
 
         col1, col2 = st.columns(2)
 
@@ -1760,8 +1759,8 @@ elif page == "export":
 
         st.divider()
 
-        st.markdown("### Smart Filtering")
-        st.markdown("Refine your export to only include predictions matching your criteria.")
+        st.markdown("### Make Your Export Smaller")
+        st.markdown("Only include the results you want.")
 
         col1, col2 = st.columns(2)
 
@@ -1818,8 +1817,8 @@ elif page == "export":
 elif page == "help":
     st.markdown("""
     <div class="hero-container">
-        <h1>❓ Help & Resources</h1>
-        <p class="hero-tagline">Everything you need to know about CoKeeper. Learn how to get the best results.</p>
+        <h1>❓ Help</h1>
+        <p class="hero-tagline">Everything you need to know. Let's make sure you get the best results.</p>
     </div>
     """, unsafe_allow_html=True)
 
