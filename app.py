@@ -1279,7 +1279,7 @@ if page == "upload":
         col1, col2, col3 = st.columns([1, 2, 1])
 
         with col2:
-            if st.button("🤖 Train Model on Backend API", type="secondary", use_container_width=True):
+            if st.button("🤖 Train Model on Backend API", type="secondary", use_container_width=True, key="train-model-button"):
                 # Create progress tracking
                 progress_bar = st.progress(0)
                 status_text = st.empty()
