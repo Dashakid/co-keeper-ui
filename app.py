@@ -1544,10 +1544,14 @@ elif page == "review":
         st.markdown("""
         <style>
         .tier-button button {
-            font-size: 16px !important;
+            font-size: 18px !important;
             font-weight: bold !important;
             color: white !important;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.2) !important;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.4) !important;
+            letter-spacing: 0.5px !important;
+        }
+        .tier-button button * {
+            color: white !important;
         }
         </style>
         """, unsafe_allow_html=True)
