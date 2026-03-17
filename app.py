@@ -1268,7 +1268,23 @@ if page == "upload":
                         st.info("💡 Make sure the backend server is running: `cd backend && uvicorn main:app --reload`")
                     else:
                         # Display training results
-                        st.balloons()
+                        st.markdown("""
+                        <style>
+                        @keyframes dinosaurRun {
+                            0% { left: -100px; }
+                            100% { left: 100vw; }
+                        }
+                        .dinosaur-runner {
+                            position: fixed;
+                            top: 50%;
+                            left: -100px;
+                            font-size: 60px;
+                            animation: dinosaurRun 4s linear;
+                            z-index: 9999;
+                        }
+                        </style>
+                        <div class="dinosaur-runner">🦕</div>
+                        """, unsafe_allow_html=True)
                         st.success("✅ Model training completed successfully!")
 
                         # Show metrics in columns
@@ -1427,8 +1443,8 @@ elif page == "results":
                 font=dict(family="system-ui, -apple-system, sans-serif", size=14, color='#1f2937'),
                 xaxis_title="Tier",
                 yaxis_title="Count",
-                xaxis=dict(tickfont=dict(size=13, color='#1f2937')),
-                yaxis=dict(tickfont=dict(size=13, color='#1f2937')),
+                xaxis=dict(tickfont=dict(size=13, color="#000000")),
+                yaxis=dict(tickfont=dict(size=13, color="#000000")),
                 showlegend=False,
                 height=450,
                 margin=dict(l=60, r=30, t=30, b=60)
@@ -1452,8 +1468,8 @@ elif page == "results":
                 font=dict(family="system-ui, -apple-system, sans-serif", size=14, color='#1f2937'),
                 xaxis_title="Confidence Score",
                 yaxis_title="Count",
-                xaxis=dict(tickfont=dict(size=13, color='#1f2937')),
-                yaxis=dict(tickfont=dict(size=13, color='#1f2937')),
+                xaxis=dict(tickfont=dict(size=13, color="#000000")),
+                yaxis=dict(tickfont=dict(size=13, color="#000000")),
                 showlegend=False,
                 height=450,
                 margin=dict(l=60, r=30, t=30, b=60)
