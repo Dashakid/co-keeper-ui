@@ -1421,16 +1421,16 @@ elif page == "results":
             )
             fig.update_layout(
                 hovermode='x unified',
-                plot_bgcolor='rgba(0,0,0,0)',
+                plot_bgcolor='rgba(240, 240, 240, 0.3)',
                 paper_bgcolor='rgba(0,0,0,0)',
-                font=dict(family="system-ui, -apple-system, sans-serif", size=14, color='#1f2937'),
+                font=dict(family="system-ui, -apple-system, sans-serif", size=14, color='#000000'),
                 xaxis_title="Tier",
                 yaxis_title="Count",
-                xaxis=dict(tickfont=dict(size=13, color="#000000")),
-                yaxis=dict(tickfont=dict(size=13, color="#000000")),
+                xaxis=dict(tickfont=dict(size=14, color="#000000"), title_font=dict(size=16, color="#000000"), showgrid=True, gridwidth=1, gridcolor='rgba(0,0,0,0.1)'),
+                yaxis=dict(tickfont=dict(size=14, color="#000000"), title_font=dict(size=16, color="#000000"), showgrid=True, gridwidth=1, gridcolor='rgba(0,0,0,0.1)'),
                 showlegend=False,
                 height=450,
-                margin=dict(l=60, r=30, t=30, b=60)
+                margin=dict(l=70, r=30, t=30, b=70)
             )
             st.plotly_chart(fig, use_container_width=True)
 
@@ -1446,16 +1446,16 @@ elif page == "results":
             )
             fig.update_layout(
                 hovermode='x unified',
-                plot_bgcolor='rgba(0,0,0,0)',
+                plot_bgcolor='rgba(240, 240, 240, 0.3)',
                 paper_bgcolor='rgba(0,0,0,0)',
-                font=dict(family="system-ui, -apple-system, sans-serif", size=14, color='#1f2937'),
+                font=dict(family="system-ui, -apple-system, sans-serif", size=14, color='#000000'),
                 xaxis_title="Confidence Score",
                 yaxis_title="Count",
-                xaxis=dict(tickfont=dict(size=13, color="#000000")),
-                yaxis=dict(tickfont=dict(size=13, color="#000000")),
+                xaxis=dict(tickfont=dict(size=14, color="#000000"), title_font=dict(size=16, color="#000000"), showgrid=True, gridwidth=1, gridcolor='rgba(0,0,0,0.1)'),
+                yaxis=dict(tickfont=dict(size=14, color="#000000"), title_font=dict(size=16, color="#000000"), showgrid=True, gridwidth=1, gridcolor='rgba(0,0,0,0.1)'),
                 showlegend=False,
                 height=450,
-                margin=dict(l=60, r=30, t=30, b=60)
+                margin=dict(l=70, r=30, t=30, b=70)
             )
             st.plotly_chart(fig, use_container_width=True)
 
