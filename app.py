@@ -1257,19 +1257,19 @@ if page == "upload":
         # Add CSS to style the train button - CUSTOMIZE COLORS HERE
         st.markdown("""
         <style>
-        /* Train Button Styling - Change these color values to customize */
-        .stButton > button:nth-child(1) {
-            background-color: #10b981 !important;        /* Button background - Change this hex code */
-            color: #ffffff !important;                    /* Button text color - Change this hex code */
-            border-color: #10b981 !important;
+        /* Train Button Styling - Higher specificity selectors */
+        div[data-testid="stButton"] button {
+            background-color: #10b981 !important;
+            color: #ffffff !important;
+            border: 2px solid #10b981 !important;
             font-weight: bold !important;
             font-size: 16px !important;
         }
-        .stButton > button:nth-child(1):hover {
-            background-color: #059669 !important;        /* Hover background - Change this hex code */
+        div[data-testid="stButton"] button:hover {
+            background-color: #059669 !important;
             border-color: #059669 !important;
         }
-        .stButton > button:nth-child(1):active {
+        div[data-testid="stButton"] button:active {
             background-color: #047857 !important;
             border-color: #047857 !important;
         }
