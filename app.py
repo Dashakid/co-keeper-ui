@@ -1254,20 +1254,24 @@ if page == "upload":
     if st.session_state.train_data is not None and st.session_state.training_result is None:
         st.markdown("### 🚀 Ready to Train")
         
-        # Add CSS to style the train button with custom color
+        # Add CSS to style the train button - CUSTOMIZE COLORS HERE
         st.markdown("""
         <style>
-        .stButton button {
-            color: #000000 !important;
-            font-weight: bold !important;
-        }
-        [data-testid="stButton"] button {
-            background-color: #10b981 !important;
+        /* Train Button Styling - Change these color values to customize */
+        .stButton > button:nth-child(1) {
+            background-color: #10b981 !important;        /* Button background - Change this hex code */
+            color: #ffffff !important;                    /* Button text color - Change this hex code */
             border-color: #10b981 !important;
+            font-weight: bold !important;
+            font-size: 16px !important;
         }
-        [data-testid="stButton"] button:hover {
-            background-color: #059669 !important;
+        .stButton > button:nth-child(1):hover {
+            background-color: #059669 !important;        /* Hover background - Change this hex code */
             border-color: #059669 !important;
+        }
+        .stButton > button:nth-child(1):active {
+            background-color: #047857 !important;
+            border-color: #047857 !important;
         }
         </style>
         """, unsafe_allow_html=True)
