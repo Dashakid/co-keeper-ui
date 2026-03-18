@@ -1,14 +1,12 @@
 """
-CoKeeper Streamlit Web App - Full Featured
-Complete GL categorization application with:
-- File upload with validation
-- Data preview
-- Results visualization
-- Review workflow (RED/YELLOW/GREEN tiers)
+CoKeeper Streamlit Web App - Enhanced Design
+GL categorization application with polished UI:
+- Dark navy sidebar with colored accents
+- Gradient hero sections
+- Colorful metric cards and tier badges
+- Vibrant Plotly charts
 - Multi-format export (CSV, Excel)
-- Responsive design
-
-Uses core pipeline from src/pipeline.py
+- Review workflow (RED/YELLOW/GREEN tiers)
 """
 
 import streamlit as st
@@ -74,6 +72,10 @@ st.markdown("""
     .main {
         background: transparent;
         padding-top: 0 !important;
+    }
+    
+    [attribute="value"] {
+        text-color: #333 
     }
 
     * {
@@ -1279,7 +1281,7 @@ if page == "upload":
         col1, col2, col3 = st.columns([1, 2, 1])
 
         with col2:
-            if st.button("🤖 Train Model on Backend API", type="secondary", use_container_width=True, key="train-model-button"):
+            if st.button("🤖 Train Model on Backend API", type="secondary", use_container_width=True):
                 # Create progress tracking
                 progress_bar = st.progress(0)
                 status_text = st.empty()
