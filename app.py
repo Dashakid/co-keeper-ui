@@ -22,14 +22,15 @@ st.set_page_config(
     initial_sidebar_state="auto"
 )
 
-# Styling
+# Styling (works in both light and dark mode)
 st.markdown("""
 <style>
     body {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
+    /* Metrics have subtle border instead of background */
     .stMetric {
-        background-color: #f0f2f6;
+        border: 1px solid rgba(200, 200, 200, 0.3);
         padding: 16px;
         border-radius: 8px;
         margin-bottom: 12px;
