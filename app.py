@@ -12,7 +12,7 @@ import requests
 import os
 
 # Configuration
-BACKEND_URL = os.getenv("BACKEND_URL", "http://localhost:8000")
+BACKEND_URL = os.getenv("BACKEND_URL", "https://cokeeper-backend-252240360177.us-central1.run.app")
 
 # Page config
 st.set_page_config(
@@ -168,7 +168,7 @@ if page == "upload":
                             
                     except requests.exceptions.ConnectionError:
                         st.error(f"❌ Cannot connect to backend at {BACKEND_URL}")
-                        st.info("Make sure backend is running: `uvicorn main:app --reload`")
+                        st.info("Backend API: https://cokeeper-backend-252240360177.us-central1.run.app/docs")
                     except Exception as e:
                         st.error(f"Error: {str(e)}")
         
